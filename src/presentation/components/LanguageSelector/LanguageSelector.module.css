@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.button.active {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.flag {
+  font-size: 1rem;
+}
+
+.label {
+  font-size: 0.7rem;
+}
