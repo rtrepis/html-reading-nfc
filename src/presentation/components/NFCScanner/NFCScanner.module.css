@@ -20,6 +20,58 @@
   text-align: center;
 }
 
+.browserRequirements {
+  padding: 0.75rem 1.25rem;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 0.75rem;
+  max-width: 640px;
+  width: 100%;
+}
+
+.browserRequirementsTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.browserRequirementsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.browserRequirementsList li {
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reqIcon {
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.reqMet {
+  color: #4ade80;
+}
+
+.reqNotMet {
+  color: #f87171;
+}
+
+.reqUnknown {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .scanButton {
   display: flex;
   align-items: center;

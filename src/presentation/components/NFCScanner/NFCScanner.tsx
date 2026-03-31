@@ -1,5 +1,6 @@
 import { useLanguage } from '../../context/LanguageContext';
 import type { ScanStatus, NFCErrorType } from '../../hooks/useNFCReader';
+import { useRequirementsCheck } from '../../hooks/useRequirementsCheck';
 import styles from './NFCScanner.module.css';
 
 interface NFCScannerProps {
@@ -26,16 +27,34 @@ export function NFCScanner({
   onStart,
   onStop,
   onReset,
-}: NFCScannerProps) {
+}: Readonly<NFCScannerProps>) {
   const { t } = useLanguage();
+  const requirements = useRequirementsCheck();
 
   return (
     <div className={styles.container}>
       {isMockMode && status === 'idle' && (
-        <div className={styles.mockBanner}>
-          <span>⚠️</span>
-          <span>{t('mockNotice')}</span>
-        </div>
+        <>
+          <div className={styles.mockBanner}>
+            <span>⚠️</span>
+            <span>{t('mockNotice')}</span>
+          </div>
+          <div className={styles.browserRequirements}>
+            <p className={styles.browserRequirementsTitle}>
+              ℹ️ {t('browserRequirementsTitle')}
+            </p>
+            <ul className={styles.browserRequirementsList}>
+              {requirements.map((req) => (
+                <li key={req.key} className={req.detectable ? (req.met ? styles.reqMet : styles.reqNotMet) : styles.reqUnknown}>
+                  <span className={styles.reqIcon}>
+                    {req.detectable ? (req.met ? '✓' : '✗') : '?'}
+                  </span>
+                  {t(req.key)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
       )}
 
       {status === 'idle' && (
